@@ -1,24 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled, { createGlobalStyle } from 'styled-components';
+import UsersList  from './Components/UsersList';
+import AppHeader from './Components/AppHeader';
+
+const GlobalStyle = createGlobalStyle `
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat';
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+`
+
+const SyledWrapper = styled.div `
+  height: 100vh;
+  background: #FEBF28;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyle/>
+      <SyledWrapper>
+        <AppHeader/>
+        <UsersList/>
+      </SyledWrapper>
     </div>
   );
 }
